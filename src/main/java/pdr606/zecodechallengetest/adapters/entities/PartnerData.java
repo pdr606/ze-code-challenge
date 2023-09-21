@@ -11,6 +11,7 @@ import pdr606.zecodechallengetest.core.domain.Partner;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 
 @Document("partner")
@@ -31,11 +32,8 @@ public class PartnerData {
 
     }
     public static List<PartnerData> toDomainObj(List<Partner> partners){
-        List<PartnerData> partnerDataList = new ArrayList<>();
-        for(Partner partner : partners){
-            partnerDataList.add(convert(partner));
-        }
-        return partnerDataList;
+        return partners.stream().map(PartnerData::convert).collect(Collectors.toList());
     }
+
 
 }

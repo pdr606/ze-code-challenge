@@ -5,5 +5,5 @@ import org.springframework.stereotype.Repository;
 import pdr606.zecodechallengetest.adapters.entities.PartnerData;
 
 @Repository
-public interface MongoPartnerRepository extends MongoRepository<PartnerData, Long> {
+public interface PartnerRepository extends MongoRepository<PartnerData, String> {
 }
