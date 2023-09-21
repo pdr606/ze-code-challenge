@@ -36,10 +36,6 @@ public class PartnerData {
             partnerDataList.add(convert(partner));
         }
         return partnerDataList;
-
     }
-
-
-
 
 }

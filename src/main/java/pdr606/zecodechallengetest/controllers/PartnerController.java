@@ -11,15 +11,15 @@ import java.util.List;
 @RestController
 @RequestMapping("/partner")
 public class PartnerController {
-    private final PartnerService partnerRepositoryImp;
+    private final PartnerService partnerService;
 
     public PartnerController(PartnerService partnerRepositoryImp) {
-        this.partnerRepositoryImp = partnerRepositoryImp;
+        this.partnerService = partnerRepositoryImp;
     }
 
     @PostMapping
     public ResponseEntity<String> sendNewPartners(@RequestBody List<Partner> partners){
-        partnerRepositoryImp.registerPartner(partners);
+        partnerService.registerPartner(partners);
         return ResponseEntity.ok("success");
     }
 }
