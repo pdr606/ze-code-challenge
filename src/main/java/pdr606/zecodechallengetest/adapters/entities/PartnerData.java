@@ -30,7 +30,7 @@ public class PartnerData {
         return new PartnerData(partner.getId(), partner.getTradingName(), partner.getOwnerName(), partner.getDocument(), partner.getAddress(), partner.getCoverageArea());
 
     }
-    public static List<PartnerData> generatePartnerDataFromPartner(List<Partner> partners){
+    public static List<PartnerData> toDomainObj(List<Partner> partners){
         List<PartnerData> partnerDataList = new ArrayList<>();
         for(Partner partner : partners){
             partnerDataList.add(convert(partner));
