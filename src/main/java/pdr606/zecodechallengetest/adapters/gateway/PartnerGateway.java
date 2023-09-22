@@ -12,7 +12,7 @@ public interface PartnerGateway {
 
     List<PartnerData> findAll();
 
-    List<PartnerData> findProximPartner(RequestLongLatDTO data);
+    PartnerData findProximPartner(RequestLongLatDTO data);
 
     Optional<PartnerData> findById(String id);
 }
