@@ -1,4 +1,4 @@
-package pdr606.zecodechallengetest.core.domain;
+package pdr606.zecodechallengetest.core.domain.geoJson;
 import lombok.Data;
 @Data
 public class GeoJsonPoint {

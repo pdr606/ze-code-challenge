@@ -1,13 +1,12 @@
-package pdr606.zecodechallengetest.adapters.gateway;
+package pdr606.zecodechallengetest.core.usecases;
 
-import pdr606.zecodechallengetest.adapters.dto.RequestLongLatDTO;
 import pdr606.zecodechallengetest.adapters.entities.PartnerData;
-import pdr606.zecodechallengetest.core.domain.Partner;
+import pdr606.zecodechallengetest.core.domain.partner.Partner;
 
 import java.util.List;
 import java.util.Optional;
 
-public interface PartnerGateway {
+public interface PartnerUseCase {
     void register(List<Partner> partners);
 
     List<PartnerData> findAll();

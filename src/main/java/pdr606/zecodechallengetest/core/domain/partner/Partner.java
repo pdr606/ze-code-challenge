@@ -1,6 +1,8 @@
-package pdr606.zecodechallengetest.core.domain;
+package pdr606.zecodechallengetest.core.domain.partner;
 
 import lombok.Data;
+import pdr606.zecodechallengetest.core.domain.geoJson.GeoJsonMultiPolygon;
+import pdr606.zecodechallengetest.core.domain.geoJson.GeoJsonPoint;
 
 @Data
 public class Partner {

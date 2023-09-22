@@ -5,10 +5,10 @@ import lombok.Data;
 import org.springframework.data.annotation.Id;
 
 import org.springframework.data.mongodb.core.mapping.Document;
-import pdr606.zecodechallengetest.core.domain.GeoJsonMultiPolygon;
-import pdr606.zecodechallengetest.core.domain.GeoJsonPoint;
-import pdr606.zecodechallengetest.core.domain.Partner;
-import com.fasterxml.jackson.annotation.JsonProperty;
+import pdr606.zecodechallengetest.core.domain.geoJson.GeoJsonMultiPolygon;
+import pdr606.zecodechallengetest.core.domain.geoJson.GeoJsonPoint;
+import pdr606.zecodechallengetest.core.domain.partner.Partner;
+
 import java.util.List;
 import java.util.stream.Collectors;
 

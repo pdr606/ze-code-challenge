@@ -2,17 +2,16 @@ package pdr606.zecodechallengetest.application;
 
 
 import org.springframework.stereotype.Service;
-import pdr606.zecodechallengetest.adapters.dto.RequestLongLatDTO;
 import pdr606.zecodechallengetest.adapters.entities.PartnerData;
 import pdr606.zecodechallengetest.adapters.persistence.PartnerRepository;
-import pdr606.zecodechallengetest.core.domain.Partner;
-import pdr606.zecodechallengetest.adapters.gateway.PartnerGateway;
+import pdr606.zecodechallengetest.core.domain.partner.Partner;
+import pdr606.zecodechallengetest.core.usecases.PartnerUseCase;
 
 import java.util.List;
 import java.util.Optional;
 
 @Service
-public class PartnerService implements PartnerGateway {
+public class PartnerService implements PartnerUseCase {
     private final PartnerRepository partnerRepository;
 
     public PartnerService(PartnerRepository partnerRepository) {

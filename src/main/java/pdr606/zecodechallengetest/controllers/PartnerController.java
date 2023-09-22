@@ -3,10 +3,10 @@ package pdr606.zecodechallengetest.controllers;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import pdr606.zecodechallengetest.adapters.dto.RequestLongLatDTO;
+import pdr606.zecodechallengetest.adapters.dto.PartnerSearchRequestDTO;
 import pdr606.zecodechallengetest.adapters.entities.PartnerData;
 import pdr606.zecodechallengetest.application.PartnerService;
-import pdr606.zecodechallengetest.core.domain.Partner;
+import pdr606.zecodechallengetest.core.domain.partner.Partner;
 
 import java.util.List;
 
@@ -31,7 +31,7 @@ public class PartnerController {
 
 
     @GetMapping(value = "/search")
-    public ResponseEntity<PartnerData> teste(@RequestBody RequestLongLatDTO data) {
+    public ResponseEntity<PartnerData> teste(@RequestBody PartnerSearchRequestDTO data) {
         PartnerData partner = partnerService.findProximPartner(data.Lat(), data.Long());
         return ResponseEntity.ok().body(partner);
 
