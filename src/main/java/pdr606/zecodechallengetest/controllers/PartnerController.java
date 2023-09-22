@@ -9,17 +9,12 @@ import pdr606.zecodechallengetest.application.PartnerService;
 import pdr606.zecodechallengetest.core.domain.Partner;
 
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 @RequestMapping("/partner")
 public class PartnerController {
     private final PartnerService partnerService;
 
-<<<<<<< HEAD
-=======
-
->>>>>>> f0c0bb1f1af33109d0bb8443bbd00fc9ca0373f6
     public PartnerController(PartnerService partnerService) {
         this.partnerService = partnerService;
     }
@@ -34,18 +29,12 @@ public class PartnerController {
         return ResponseEntity.ok().body(partnerService.findAll());
     }
 
-<<<<<<< HEAD
 
     @GetMapping(value = "/search")
-    public ResponseEntity<PartnerData> teste(@RequestBody RequestLongLatDTO data){
+    public ResponseEntity<PartnerData> teste(@RequestBody RequestLongLatDTO data) {
         PartnerData partner = partnerService.findProximPartner(data.Lat(), data.Long());
         return ResponseEntity.ok().body(partner);
-=======
-    @PostMapping(value = "/search")
-    public ResponseEntity<PartnerData> teste(@RequestBody RequestLongLatDTO data){
-        PartnerData list = partnerService.findProximPartner(data);
-        return  ResponseEntity.ok().body(list);
->>>>>>> f0c0bb1f1af33109d0bb8443bbd00fc9ca0373f6
+
     }
 
     @GetMapping(value = "/{id}")
