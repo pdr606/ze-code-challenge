@@ -8,8 +8,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 import pdr606.zecodechallengetest.core.domain.GeoJsonMultiPolygon;
 import pdr606.zecodechallengetest.core.domain.GeoJsonPoint;
 import pdr606.zecodechallengetest.core.domain.Partner;
-
-import java.util.ArrayList;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.List;
 import java.util.stream.Collectors;
 

@@ -35,11 +35,13 @@
 			<version>2.4.1</version>
 		</dependency>
 
+
 		<dependency>
 			<groupId>org.mapstruct</groupId>
 			<artifactId>mapstruct</artifactId>
 			<version>1.4.2.Final</version> <!-- Verifique a versão mais recente -->
 		</dependency>
+
 
 		<!-- https://mvnrepository.com/artifact/org.locationtech.jts/jts-core -->
 		<dependency>

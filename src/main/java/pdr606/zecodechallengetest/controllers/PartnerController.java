@@ -16,6 +16,10 @@ import java.util.Optional;
 public class PartnerController {
     private final PartnerService partnerService;
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> f0c0bb1f1af33109d0bb8443bbd00fc9ca0373f6
     public PartnerController(PartnerService partnerService) {
         this.partnerService = partnerService;
     }
@@ -30,11 +34,18 @@ public class PartnerController {
         return ResponseEntity.ok().body(partnerService.findAll());
     }
 
+<<<<<<< HEAD
 
     @GetMapping(value = "/search")
     public ResponseEntity<PartnerData> teste(@RequestBody RequestLongLatDTO data){
         PartnerData partner = partnerService.findProximPartner(data.Lat(), data.Long());
         return ResponseEntity.ok().body(partner);
+=======
+    @PostMapping(value = "/search")
+    public ResponseEntity<PartnerData> teste(@RequestBody RequestLongLatDTO data){
+        PartnerData list = partnerService.findProximPartner(data);
+        return  ResponseEntity.ok().body(list);
+>>>>>>> f0c0bb1f1af33109d0bb8443bbd00fc9ca0373f6
     }
 
     @GetMapping(value = "/{id}")
