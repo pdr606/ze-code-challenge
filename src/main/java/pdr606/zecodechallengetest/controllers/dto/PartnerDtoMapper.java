@@ -7,10 +7,32 @@ import java.util.stream.Collectors;
 
 public class PartnerDtoMapper {
 
-     public static List<CreatePartnerResponseDto> toResponse(List<Partner> partners){
+    public static PartnerResponseDto toResponse(Partner partner){
+        return new PartnerResponseDto(
+                partner.getId(),
+                partner.getTradingName(),
+                partner.getOwnerName(),
+                partner.getDocument(),
+                partner.getAddress(),
+                partner.getCoverageArea()
+        );
+    }
+
+    public static Partner toPartner(PartnerRequestDto request){
+        return new Partner(
+                request.id(),
+                request.tradingName(),
+                request.ownerName(),
+                request.document(),
+                request.address(),
+                request.coverageArea()
+        );
+    }
+
+     public static List<PartnerResponseDto> toResponse(List<Partner> partners){
         return partners.stream().map(
                 partner ->
-                    new CreatePartnerResponseDto(
+                    new PartnerResponseDto(
                             partner.getId(),
                             partner.getTradingName(),
                             partner.getOwnerName(),
@@ -22,7 +44,7 @@ public class PartnerDtoMapper {
         ).collect(Collectors.toList());
     }
     
-    public static List<Partner> toPartner(List<CreatePartnerRequestDto> request){
+    public static List<Partner> toPartner(List<PartnerRequestDto> request){
         return request.stream().map(partner -> 
                 new Partner(
                   partner.id(),
