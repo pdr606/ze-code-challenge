@@ -1,5 +1,6 @@
 package pdr606.zecodechallengetest.infra.gateways;
 
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.dao.DataIntegrityViolationException;
 import pdr606.zecodechallengetest.application.gateways.PartnerEntityMapper;
 import pdr606.zecodechallengetest.application.gateways.PartnerGetaway;
@@ -33,6 +34,7 @@ public class PartnerRepositoryGetaway implements PartnerGetaway {
         }
     }
 
+    @Cacheable
     @Override
     public Partner findProximPartner(double lat, double lon) {
         List<PartnerEntity> partners = partnerRepository.findNearestPartners(lat, lon);

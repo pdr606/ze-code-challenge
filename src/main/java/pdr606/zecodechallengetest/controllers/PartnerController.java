@@ -33,13 +33,14 @@ public class PartnerController {
     }
 
     @PostMapping
-    public ResponseEntity createPartners(@RequestBody @Valid List<PartnerRequestDto> partners) {
+    public ResponseEntity<Void> createPartners(@RequestBody @Valid  List<PartnerRequestDto> partners) {
         List<Partner> partnerBusinessObj = PartnerDtoMapper.toPartner(partners);
+        createPartnerUseCase.createPartner(partnerBusinessObj);
         return ResponseEntity.ok().build();
     }
 
     @GetMapping(value = "/proxim")
-    public ResponseEntity<PartnerResponseDto> findProximPartner(@RequestBody @Valid FindProximPartnerRequestDto request){
+    public ResponseEntity<PartnerResponseDto> findProximPartner(@RequestBody @Valid  FindProximPartnerRequestDto request){
         Partner partner = findProximPartnerUseCase.findProximPartner(request.lat(), request.lon());
         return ResponseEntity.ok().body(PartnerDtoMapper.toResponse(partner));
     }
