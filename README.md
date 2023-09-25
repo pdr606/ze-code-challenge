@@ -9,7 +9,6 @@ API para gerenciar parceiros a partir de geolocalização[desse desafio](https:/
  
 - [Spring Boot](https://spring.io/projects/spring-boot)
 - [Spring Data Mongo](https://spring.io/projects/spring-data-mongodb)
-- [Spring Data + R2DBC](https://docs.spring.io/spring-framework/reference/data-access/r2dbc.html)
 
 
 ## Práticas adotadas
