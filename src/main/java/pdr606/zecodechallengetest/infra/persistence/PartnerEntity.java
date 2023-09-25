@@ -1,9 +1,9 @@
-package pdr606.zecodechallengetest.adapters.entities;
+package pdr606.zecodechallengetest.infra.persistence;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import org.springframework.data.annotation.Id;
-
+import org.springframework.data.mongodb.core.index.GeoSpatialIndexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 import pdr606.zecodechallengetest.core.domain.geoJson.GeoJsonMultiPolygon;
 import pdr606.zecodechallengetest.core.domain.geoJson.GeoJsonPoint;
@@ -16,7 +16,7 @@ import java.util.stream.Collectors;
 @Document("partner")
 @Data
 @AllArgsConstructor
-public class PartnerData {
+public class PartnerEntity {
 
     @Id
     private String id;
@@ -25,14 +25,5 @@ public class PartnerData {
     private String document;
     private GeoJsonPoint address;
     private GeoJsonMultiPolygon coverageArea;
-
-    public static PartnerData convert (Partner partner){
-        return new PartnerData(partner.getId(), partner.getTradingName(), partner.getOwnerName(), partner.getDocument(), partner.getAddress(), partner.getCoverageArea());
-
-    }
-    public static List<PartnerData> toDomainObj(List<Partner> partners){
-        return partners.stream().map(PartnerData::convert).collect(Collectors.toList());
-    }
-
 
 }
