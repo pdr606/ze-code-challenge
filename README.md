@@ -19,10 +19,9 @@ API para gerenciar parceiros a partir de geolocalização[desse desafio](https:/
 - Armazenamento em geoJSON
 - Cálculo de geolocalização a partir de latitude e longtide
 - Testes automatizados
-- Consultas com filtros dinâmicos usando o Query By Example
+- Query Personalizada
 - Uso de DTOs para a API
 - Injeção de Dependências
-
 
 
 
@@ -211,10 +210,27 @@ Para fazer as requisições HTTP abaixo, foi utilizada a ferramenta [Insomnia](h
 	"lat": -43.297337,
 	"lon": -23.013538
 }
-```
 
+```
 - GET /partner/{id}
 ```
+{
+  "id": 1, 
+  "tradingName": "Adega da Cerveja - Pinheiros",
+  "ownerName": "Zé da Silva",
+  "document": "1432132123891/0001",
+  "coverageArea": { 
+    "type": "MultiPolygon", 
+    "coordinates": [
+      [[[30, 20], [45, 40], [10, 40], [30, 20]]], 
+      [[[15, 5], [40, 10], [10, 20], [5, 10], [15, 5]]]
+    ]
+  },
+  "address": { 
+    "type": "Point",
+    "coordinates": [-46.57421, -21.785741]
+  }
+}
 
 ```
 
