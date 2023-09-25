@@ -1,4 +1,4 @@
-package pdr606.zecodechallengetest.application1.gateways;
+package pdr606.zecodechallengetest.application.gateways;
 
 import pdr606.zecodechallengetest.core.domain.partner.Partner;
 
@@ -11,4 +11,5 @@ public interface PartnerGetaway {
 
     Partner findById(String id);
 
+    double calculateDistance(double lat1, double lon1, double lat2, double lon2);
 }

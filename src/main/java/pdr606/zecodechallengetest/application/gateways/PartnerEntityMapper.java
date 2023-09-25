@@ -1,4 +1,4 @@
-package pdr606.zecodechallengetest.application1.gateways;
+package pdr606.zecodechallengetest.application.gateways;
 
 import pdr606.zecodechallengetest.core.domain.partner.Partner;
 import pdr606.zecodechallengetest.infra.persistence.PartnerEntity;

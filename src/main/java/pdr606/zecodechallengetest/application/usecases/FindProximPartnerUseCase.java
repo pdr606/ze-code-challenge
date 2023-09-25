@@ -1,9 +1,7 @@
-package pdr606.zecodechallengetest.application1.usecases;
+package pdr606.zecodechallengetest.application.usecases;
 
-import pdr606.zecodechallengetest.application1.gateways.PartnerGetaway;
+import pdr606.zecodechallengetest.application.gateways.PartnerGetaway;
 import pdr606.zecodechallengetest.core.domain.partner.Partner;
-
-import java.util.List;
 
 public class FindProximPartnerUseCase {
 

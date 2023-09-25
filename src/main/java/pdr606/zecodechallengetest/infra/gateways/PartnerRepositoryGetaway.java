@@ -1,7 +1,10 @@
 package pdr606.zecodechallengetest.infra.gateways;
 
-import pdr606.zecodechallengetest.application1.gateways.PartnerEntityMapper;
-import pdr606.zecodechallengetest.application1.gateways.PartnerGetaway;
+import org.springframework.dao.DataIntegrityViolationException;
+import pdr606.zecodechallengetest.application.gateways.PartnerEntityMapper;
+import pdr606.zecodechallengetest.application.gateways.PartnerGetaway;
+import pdr606.zecodechallengetest.core.domain.exceptions.DataBaseException;
+import pdr606.zecodechallengetest.core.domain.exceptions.NotFoundException;
 import pdr606.zecodechallengetest.core.domain.partner.Partner;
 import pdr606.zecodechallengetest.infra.persistence.PartnerEntity;
 import pdr606.zecodechallengetest.infra.persistence.PartnerRepository;
@@ -22,8 +25,12 @@ public class PartnerRepositoryGetaway implements PartnerGetaway {
 
     @Override
     public void createPartner(List<Partner> partnerDomainObj) {
-        List<PartnerEntity> partnerEntity = partnerEntityMapper.toEntity(partnerDomainObj);
-        partnerRepository.saveAll(partnerEntity);
+        try{
+            List<PartnerEntity> partnerEntity = partnerEntityMapper.toEntity(partnerDomainObj);
+            partnerRepository.saveAll(partnerEntity);
+        } catch (DataIntegrityViolationException e){
+            throw new DataBaseException(e.getMessage());
+        }
     }
 
     @Override
@@ -31,7 +38,8 @@ public class PartnerRepositoryGetaway implements PartnerGetaway {
         List<PartnerEntity> partners = partnerRepository.findNearestPartners(lat, lon);
 
         if (partners.isEmpty()) {
-            return null;
+            throw new NotFoundException(
+                    "No partners found in your region");
         }
 
         partners.sort(Comparator.comparingDouble(partnerEntity ->
@@ -42,10 +50,13 @@ public class PartnerRepositoryGetaway implements PartnerGetaway {
 
     @Override
     public Partner findById(String id) {
-        PartnerEntity partnerEntity = partnerRepository.findById(id).get();
+        PartnerEntity partnerEntity = partnerRepository.findById(id).orElseThrow(()
+                -> new NotFoundException("Partner" + id + " not found"));
+
         return partnerEntityMapper.toDomainObj(partnerEntity);
     }
 
+    @Override
     public double calculateDistance(double lat1, double lon1, double lat2, double lon2) {
         double R = 6371.01;
 

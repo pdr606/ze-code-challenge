@@ -3,14 +3,15 @@ package pdr606.zecodechallengetest.controllers;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import pdr606.zecodechallengetest.application1.usecases.CreatePartnerUseCase;
-import pdr606.zecodechallengetest.application1.usecases.FindByIdPartnerUseCase;
-import pdr606.zecodechallengetest.application1.usecases.FindProximPartnerUseCase;
+import pdr606.zecodechallengetest.application.usecases.CreatePartnerUseCase;
+import pdr606.zecodechallengetest.application.usecases.FindByIdPartnerUseCase;
+import pdr606.zecodechallengetest.application.usecases.FindProximPartnerUseCase;
 import pdr606.zecodechallengetest.controllers.dto.CreatePartnerRequestDto;
 import pdr606.zecodechallengetest.controllers.dto.FindProximPartnerRequestDto;
 import pdr606.zecodechallengetest.controllers.dto.PartnerDtoMapper;
 import pdr606.zecodechallengetest.core.domain.partner.Partner;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -30,20 +31,20 @@ public class PartnerController {
     }
 
     @PostMapping
-    public ResponseEntity<String> createPartners(@RequestBody List<CreatePartnerRequestDto> partners){
+    public ResponseEntity<String> createPartners(@RequestBody @Valid List<CreatePartnerRequestDto> partners){
         List<Partner> partnerBusinessObj = PartnerDtoMapper.toPartner(partners);
         createPartnerUseCase.createPartner(partnerBusinessObj);
         return ResponseEntity.ok("success");
     }
 
     @GetMapping(value = "/proxim")
-    public ResponseEntity<Partner> findProximPartner(@RequestBody FindProximPartnerRequestDto request){
+    public ResponseEntity<Partner> findProximPartner(@RequestBody @Valid FindProximPartnerRequestDto request){
         Partner partner = findProximPartnerUseCase.findProximPartner(request.lat(), request.lon());
         return ResponseEntity.ok().body(partner);
     }
 
     @GetMapping(value = "/{id}")
-    public ResponseEntity<Partner> findById(@PathVariable String id){
+    public ResponseEntity<Partner> findById(@PathVariable @Valid String id){
         Partner partner = findByIdPartnerUseCase.findById(id);
         return ResponseEntity.ok().body(partner);
     }
