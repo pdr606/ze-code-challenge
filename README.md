@@ -34,11 +34,10 @@ API para gerenciar parceiros a partir de geolocalização[desse desafio](https:/
 ```
 - Executar:
 ```
-java -jar place-service/target/place-service-0.0.1-SNAPSHOT.jar
+java -jar ze-code-challenge/target/ze-code-challenge-0.0.1-SNAPSHOT.jar
 ```
 
 A API poderá ser acessada em [localhost:8080](http://localhost:8080).
-O Swagger poderá ser visualizado em [localhost:8080/swagger-ui.html](http://localhost:8080/swagger-ui.html)
 
 ### Usando Docker
 
@@ -53,7 +52,7 @@ O Swagger poderá ser visualizado em [localhost:8080/swagger-ui.html](http://loc
 ```
 - Executar o container:
 ```
-docker run --name place-service -p 8080:8080  -d place-service:0.0.1-SNAPSHOT
+docker run --name ze-code-challenge -p 8080:8080  -d ze-code-challenge:0.0.1-SNAPSHOT
 ```
 
 A API poderá ser acessada em [localhost:8080](http://localhost:8080).
