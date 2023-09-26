@@ -26,19 +26,6 @@ API para gerenciar parceiros a partir de geolocalização [desse desafio](https:
 
 ## Como Executar
 
-### Localmente
-- Clonar repositório git
-- Construir o projeto:
-```
-./mvnw clean package
-```
-- Executar:
-```
-java -jar ze-code-challenge/target/ze-code-challenge-0.0.1-SNAPSHOT.jar
-```
-
-A API poderá ser acessada em [localhost:8080](http://localhost:8080).
-
 ### Usando Docker
 
 - Clonar repositório git
@@ -48,13 +35,12 @@ A API poderá ser acessada em [localhost:8080](http://localhost:8080).
 ```
 - Construir a imagem:
 ```
-./mvnw spring-boot:build-image
+docker build -t ze-code-challenge
 ```
 - Executar o container:
 ```
-docker run --name ze-code-challenge -p 8080:8080  -d ze-code-challenge:0.0.1-SNAPSHOT
+docker run -p 8080:8080 ze-code-challenge
 ```
-
 A API poderá ser acessada em [localhost:8080](http://localhost:8080).
 
 ## API Endpoints
