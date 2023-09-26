@@ -3,7 +3,7 @@
   Ze-Code-Challenge 🍻🍺
 </h1>
 
-API para gerenciar parceiros a partir de geolocalização[desse desafio](https://github.com/ZXVentures/ze-code-challenges/blob/master/backend.md).
+API para gerenciar parceiros a partir de geolocalização [desse desafio](https://github.com/ZXVentures/ze-code-challenges/blob/master/backend.md).
 
 ## Tecnologias
  
@@ -56,7 +56,6 @@ docker run --name ze-code-challenge -p 8080:8080  -d ze-code-challenge:0.0.1-SNA
 ```
 
 A API poderá ser acessada em [localhost:8080](http://localhost:8080).
-O Swagger poderá ser visualizado em [localhost:8080/swagger-ui.html](http://localhost:8080/swagger-ui.html)
 
 ## API Endpoints
 
