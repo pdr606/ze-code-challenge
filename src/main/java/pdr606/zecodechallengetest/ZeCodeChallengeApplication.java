@@ -8,10 +8,10 @@ import org.springframework.data.mongodb.repository.config.EnableMongoRepositorie
 @SpringBootApplication
 @EnableMongoRepositories
 @EnableCaching
-public class ZeCodeChallengeTestApplication {
+public class ZeCodeChallengeApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(ZeCodeChallengeTestApplication.class, args);
+		SpringApplication.run(ZeCodeChallengeApplication.class, args);
 	}
 
 }
